@@ -1,9 +1,12 @@
-function httpGet(theUrl)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
-}
+var url = "https://games.roblox.com/v1/games/718655742/servers/Public?sortOrder=Asc&limit=100";
 
-console.log(httpGet("https://games.roblox.com/v1/games/718655742/servers/Public?sortOrder=Asc&limit=100"))
+var xhr = new XMLHttpRequest();
+xhr.open("GET", url);
+
+xhr.onreadystatechange = function () {
+   if (xhr.readyState === 4) {
+      console.log(xhr.status);
+      console.log(xhr.responseText);
+   }};
+
+xhr.send();
